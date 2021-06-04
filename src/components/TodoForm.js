@@ -9,7 +9,9 @@ function TodoForm({ addTodo }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          addTodo(value);
+          if (value !== "") {
+            addTodo(value);
+          }
           reset();
         }}
       >
