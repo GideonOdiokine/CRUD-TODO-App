@@ -1,6 +1,6 @@
 import React from "react";
-// import useToggleState from "./hooks/useToggleState";
-// import EditTodoForm from "./EditTodoForm";
+import useToggleState from "../hooks/useToggleState";
+import EditTodoForm from "./EditTodoForm";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItem";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -10,11 +10,12 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 function Todo({ id, task, completed, removeTodo,toggleTodo}) {
-    // const [isEditing, toggle] = useToggleState(false);
+    const [isEditing, toggle] = useToggleState(false);
     return (
       <ListItem >
       
-          <>
+        {isEditing ? (<EditTodoForm/>):(  
+        <>
             <Checkbox
               tabIndex={-1}
               checked={completed}
@@ -29,12 +30,12 @@ function Todo({ id, task, completed, removeTodo,toggleTodo}) {
               <IconButton aria-label='Delete' onClick={() => removeTodo(id)}>
                 <DeleteIcon />
               </IconButton>
-              <IconButton aria-label='Edit' >
+              <IconButton aria-label='Edit' onClick={toggle} >
                 <EditIcon />
               </IconButton>
             </ListItemSecondaryAction>
-          </>
-        )
+          </>)}
+        
       </ListItem>
     );
   }
