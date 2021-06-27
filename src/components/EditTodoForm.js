@@ -6,16 +6,16 @@ function EditTodoForm({ id, task, EditTodo, toggle }) {
   const [value, handleChange, reset] = useInputState(task);
   return (
     <form
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         EditTodo(id, value);
         reset();
         toggle();
       }}
-      style={{ marginLeft: "1rem", width: "50%" }}
+      style={{ marginLeft: "1.1rem", width: "50%" }}
     >
       <TextField
-        margin='normal'
+        margin="normal"
         value={value}
         onChange={handleChange}
         fullWidth
