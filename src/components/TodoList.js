@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 
-function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
+function TodoList({ todos, removeTodo, toggleTodo, EditTodo }) {
   if (todos.length)
     return (
       <Paper>
@@ -18,7 +18,7 @@ function TodoList({ todos, removeTodo, toggleTodo, editTodo }) {
                 key={todo.id}
                 removeTodo={removeTodo}
                 toggleTodo={toggleTodo}
-                editTodo={editTodo}
+                EditTodo={EditTodo}
               />
               {i < todos.length - 1 && <Divider />}
             </React.Fragment>

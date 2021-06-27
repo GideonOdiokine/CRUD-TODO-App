@@ -15,13 +15,33 @@ function TodoForm({ addTodo }) {
           reset();
         }}
       >
-        <TextField
-          value={value}
-          onChange={handleChange}
-          margin="normal"
-          label="Add New Todo"
-          fullWidth
-        />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <TextField
+            value={value}
+            onChange={handleChange}
+            margin="normal"
+            label="Add New Todo"
+            fullWidth
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              if (value !== "") {
+                addTodo(value);
+              }
+              reset();
+            }}
+            style={{
+              backgroundColor: "blue",
+              border: "0",
+              padding: "8px",
+              marginTop: "5px",
+              color: "#fff",
+            }}
+          >
+            Add
+          </button>
+        </div>
       </form>
     </Paper>
   );

@@ -2,15 +2,15 @@ import React from "react";
 import useInputState from "../hooks/useStateInput";
 import TextField from "@material-ui/core/TextField";
 
-function EditTodoForm({ id, task, editTodo, toggleEditForm }) {
+function EditTodoForm({ id, task, EditTodo, toggle }) {
   const [value, handleChange, reset] = useInputState(task);
   return (
     <form
       onSubmit={e => {
         e.preventDefault();
-        editTodo(id, value);
+        EditTodo(id, value);
         reset();
-        toggleEditForm();
+        toggle();
       }}
       style={{ marginLeft: "1rem", width: "50%" }}
     >
